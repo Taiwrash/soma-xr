@@ -1,0 +1,27 @@
+1
+00:00:00,750 --> 00:00:22,484
+Think about standing in front of a mirror every morning—you see your face, your posture, your hands, yet everything keeping you alive stays hidden. What if standing in front of that mirror let you look straight inside yourself—your beating heart, breathing lungs, and 27 precision bones moving inside your bare hands? Welcome to Soma XR—one click, zero clutter, and your body becomes a living 3D anatomy lab!
+
+2
+00:00:22,864 --> 00:00:46,307
+Put down your controllers—you will never need them! Launch Meta Quest Mixed Reality right from your chair inside a two-foot seated radius. 26 WebXR joints overlay 27 articulated bones onto your bare hands. Poke the floating 3D console, tap Tabletop, and sweep your finger as a live 3D X-Ray Lens!
+
+3
+00:00:46,687 --> 00:01:03,053
+Still seated in Mixed Reality, hold an open hand flat and tilt your wrist to slice live 6DoF CT cross-sections at any angle! Every organ is alive: a 72 BPM heart, breathing lungs, and a mandible and TMJ that articulate live with every word I speak!
+
+4
+00:01:03,433 --> 00:01:15,355
+Want to inspect every system? Glide top-to-bottom from the cerebral cortex down to 26-bone feet, or switch to Solid studio shading and separate living organs, skeleton, and striated muscle apart in three dimensions!
+
+5
+00:01:15,735 --> 00:01:46,430
+To unlock medical knowledge for every region, Soma XR adapts its 3D callouts and voice coach to local languages—listen live in English, Yorùbá, and Hausa: [English] Heart and Great Vessels. [Yorùbá] Ọkàn àti àwọn iṣan ẹ̀jẹ̀ ńlá. [Hausa] Zuciya da manyan jijiyoyi.
+
+6
+00:01:46,810 --> 00:01:58,957
+Even if you only have two minutes, jump straight into Fracture Scan or Quiz! Sweep your X-Ray lens onto this midshaft clavicle fracture for an instant diagnosis, exit or resume cleanly with one tap, and pick right back up anytime!
+
+7
+00:01:59,337 --> 00:02:10,858
+100% hands-first, seated-optimized, and speaking your region's language on Meta Quest Mixed Reality or any browser! This is Soma XR—step in front of the mirror, and see what you're made of! Thank you!

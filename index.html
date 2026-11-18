@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <title>Soma XR | Spatial Anatomy</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230369a1'/%3E%3Cpath d='M16 6a4 4 0 1 1 0 8 4 4 0 0 1 0-8Zm-6 10h12l-2 10h-8z' fill='white'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+  </head>
+  <body>
+    <div id="sr-announcer" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+    <p id="app-toast" class="app-toast" role="status" aria-live="polite" hidden></p>
+
+    <div id="viewport-stage">
+      <video id="webcam-video" playsinline muted></video>
+      <div id="scene-container"></div>
+      <div id="labels-overlay"></div>
+    </div>
+
+    <header id="studio-header" class="hud-header" hidden>
+      <div class="brand">
+        <button type="button" id="btn-back-landing" class="btn btn-icon brand-back-btn" aria-label="Back to Soma XR home">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" /></svg>
+        </button>
+        <div class="studio-brand-lockup">
+          <h1 id="studio-brand-title" class="brand-title" tabindex="-1">Soma XR</h1>
+        </div>
+      </div>
+
+      <nav class="mode-tabs" aria-label="Modes">
+        <button type="button" class="mode-tab" data-mode-tab="explore" aria-pressed="true">Explore</button>
+        <button type="button" class="mode-tab" data-mode-tab="pinpoint" aria-pressed="false">Quiz</button>
+        <button type="button" class="mode-tab" data-mode-tab="detective" aria-pressed="false">Fractures</button>
+        <button type="button" class="mode-tab" data-mode-tab="ai-tutor" aria-pressed="false">Coach</button>
+      </nav>
+
+      <div class="header-actions">
+        <label for="sel-header-lang" class="visually-hidden">Language</label>
+        <select id="sel-header-lang" name="header-coach-language" class="xr-select header-lang-select"></select>
+        <button type="button" id="btn-launch-xr" class="btn btn-primary">
+          <span id="xr-label">Enter MR</span>
+        </button>
+        <button type="button" id="btn-webcam" class="btn" aria-pressed="false">
+          <span id="webcam-label">Webcam</span>
+        </button>
+        <button type="button" id="btn-voice-ai" class="btn btn-icon" aria-pressed="false" aria-label="Ask by voice">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><rect x="9" y="3" width="6" height="11" rx="3" fill="currentColor" /><path d="M5 11a7 7 0 0 0 14 0M12 18v3" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+        </button>
+        <button type="button" id="btn-mute" class="btn btn-icon" aria-pressed="false" aria-label="Mute audio">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><path d="M4 9h4l5-4v14l-5-4H4z" fill="currentColor" /><path id="mute-wave" d="M16.5 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /></svg>
+        </button>
+        <button type="button" id="btn-help" class="btn btn-icon" aria-label="Controls guide">
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2" /><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.6V14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" /><circle cx="12" cy="17.3" r="1.2" fill="currentColor" /></svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <!-- Clean Startup Hero Landing -->
+      <section id="landing-view" class="landing-view" aria-labelledby="landing-heading">
+        <div class="landing-nav">
+          <div class="landing-brand">
+            <span class="landing-wordmark">Soma XR</span>
+          </div>
+          <button type="button" id="btn-nav-studio" class="btn landing-nav-cta">Open Studio</button>
+        </div>
+
+        <div class="landing-hero">
+          <h1 id="landing-heading" class="landing-heading" tabindex="-1">Human anatomy, experienced in <em>living 3D.</em></h1>
+          <p class="landing-lead">
+            Explore the full human body with bare hands in Mixed Reality or 3D, guided in 14 African and global languages.
+          </p>
+          <div class="landing-actions">
+            <button type="button" id="btn-enter-studio" class="btn btn-primary landing-cta">Enter Studio</button>
+            <button type="button" id="btn-landing-mr" class="btn landing-secondary">Launch Mixed Reality</button>
+          </div>
+        </div>
+
+        <div class="landing-foot" aria-label="Platform highlights">
+          <span>Meta Quest &amp; WebXR</span>
+          <span class="landing-sep" aria-hidden="true"></span>
+          <span>Seated Hands-First</span>
+          <span class="landing-sep" aria-hidden="true"></span>
+          <span>14 Languages</span>
+        </div>
+      </section>
+
+      <!-- Bottom Camera Framing Bar -->
+      <div id="studio-stage-toolbar" class="stage-toolbar" role="group" aria-label="Camera framing" hidden>
+        <div class="segmented">
+          <button type="button" data-framing="full" aria-pressed="true">Full body</button>
+          <button type="button" data-framing="torso" aria-pressed="false">Torso</button>
+          <button type="button" data-framing="head" aria-pressed="false">Head</button>
+        </div>
+        <button type="button" id="btn-reset-view" class="btn btn-ghost">Reset</button>
+      </div>
+    </main>
+
+    <aside id="sidebar" class="sidebar" aria-label="Inspector and controls" hidden>
+      <section class="inspector" aria-labelledby="context-title">
+        <div id="inspector-localized" lang="en" dir="ltr">
+          <h2 class="context-title" id="context-title">Heart &amp; Great Vessels</h2>
+          <p class="context-body" id="context-body">Loading anatomy…</p>
+        </div>
+
+        <div class="scan-progress-wrap" id="scan-progress-wrap" hidden>
+          <label for="scan-progress-bar">Fracture lock-on</label>
+          <progress id="scan-progress-bar" max="100" value="0">0%</progress>
+        </div>
+
+        <div class="context-actions" id="context-actions"></div>
+
+        <form id="coach-ask-form" class="coach-ask-form">
+          <label for="inp-coach-ask" id="lbl-coach-ask" class="visually-hidden">Ask the anatomy coach</label>
+          <input type="text" id="inp-coach-ask" name="coach-question" class="xr-input" autocomplete="off" placeholder="Ask a question…" />
+          <button type="submit" id="btn-coach-send" class="btn btn-primary">Ask</button>
+        </form>
+      </section>
+
+      <section class="controls-card" aria-label="View controls">
+        <div class="control-group">
+          <span class="group-label">Layers</span>
+          <div class="pill-grid five" role="group" aria-label="Layer presets">
+            <button type="button" class="pill-btn" data-preset="radiograph" aria-pressed="true">X-ray</button>
+            <button type="button" class="pill-btn" data-preset="skeleton" aria-pressed="false">Bones</button>
+            <button type="button" class="pill-btn" data-preset="organs" aria-pressed="false">Organs</button>
+            <button type="button" class="pill-btn" data-preset="muscles" aria-pressed="false">Muscles</button>
+            <button type="button" class="pill-btn" data-preset="everything" aria-pressed="false">All</button>
+          </div>
+          <div class="checkbox-grid">
+            <label class="check-label" for="chk-labels"><input type="checkbox" id="chk-labels" class="checkbox-custom" checked /><span>Show labels</span></label>
+            <label class="check-label" for="chk-solid"><input type="checkbox" id="chk-solid" class="checkbox-custom" /><span>Solid shading</span></label>
+          </div>
+        </div>
+
+        <div class="control-group">
+          <div class="field-row">
+            <label for="sel-reveal-mode">Inspect</label>
+            <select id="sel-reveal-mode" name="reveal-mode" class="xr-select">
+              <option value="whole">Whole body</option>
+              <option value="lens">Finger X-ray lens</option>
+              <option value="left-half">Left / right slice</option>
+              <option value="upper-cut">Top / bottom slice</option>
+              <option value="palm-slicer">Palm slicer (3D angle)</option>
+            </select>
+          </div>
+          <div class="slider-row" id="row-lens-cut" hidden>
+            <label id="lbl-lens-or-cut" for="sl-lens-or-cut">Position</label>
+            <input type="range" id="sl-lens-or-cut" class="xr-slider" min="-95" max="95" step="1" value="0" />
+            <output id="val-lens-or-cut" for="sl-lens-or-cut">0%</output>
+          </div>
+          <div class="slider-row">
+            <label for="sl-explode">Separate</label>
+            <input type="range" id="sl-explode" class="xr-slider" min="0" max="100" step="1" value="0" />
+            <output id="val-explode" for="sl-explode">0%</output>
+          </div>
+          <button type="button" id="btn-pull-out" class="btn btn-block" aria-pressed="false">Tabletop 3D view</button>
+        </div>
+      </section>
+
+      <div class="accordion">
+        <details id="details-calibration">
+          <summary>Calibration &amp; fit</summary>
+          <div class="panel">
+            <div class="slider-row">
+              <label for="sl-brightness">Contrast</label>
+              <input type="range" id="sl-brightness" class="xr-slider" min="50" max="160" step="1" value="100" />
+              <output id="val-brightness" for="sl-brightness">100%</output>
+            </div>
+            <div class="slider-row">
+              <label for="sl-real-me">Camera blend</label>
+              <input type="range" id="sl-real-me" class="xr-slider" min="0" max="85" step="1" value="30" />
+              <output id="val-real-me" for="sl-real-me">30%</output>
+            </div>
+            <div class="slider-row">
+              <label for="sl-fit-overall">Body size</label>
+              <input type="range" id="sl-fit-overall" class="xr-slider" min="65" max="140" step="1" value="100" />
+              <output id="val-fit-overall" for="sl-fit-overall">100%</output>
+            </div>
+            <button type="button" id="btn-reset-fit" class="btn btn-block">Reset fit</button>
+          </div>
+        </details>
+      </div>
+
+      <p class="disclaimer-note">Educational simulation. Not a diagnostic image. All camera, hand, and voice processing stays on this device.</p>
+    </aside>
+
+    <dialog id="gestures-dialog" class="xr-dialog" closedby="any" aria-labelledby="dialog-heading">
+      <h2 id="dialog-heading">How to use Soma XR</h2>
+      <ol class="gesture-list">
+        <li><strong>Seated Mixed Reality (Quest 3 / 3S):</strong> select <em>Enter MR</em> with controllers set down. Everything works seated within a two-foot radius.</li>
+        <li><strong>Hands-first console:</strong> tap floating buttons directly with your index finger, or aim and pinch from your seat.</li>
+        <li><strong>Tabletop 3D &amp; Slicing:</strong> tap <em>Tabletop</em> to bring a compact 3D body within effortless reach, sweep <em>Finger lens</em>, or tilt an open hand in <em>Palm slice</em>.</li>
+        <li><strong>14 Languages &amp; Voice:</strong> switch languages anytime or select the microphone to ask questions aloud.</li>
+      </ol>
+      <button type="button" id="btn-close-help" class="btn btn-primary">Got it</button>
+    </dialog>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

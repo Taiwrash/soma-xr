@@ -1,0 +1,22 @@
+{
+  "name": "soma-xr",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Soma XR — Full-Body Spatial Anatomy Mirror, 1:1 Passthrough Hand Scanner, 3D Slicing & Multilingual AI Coach for Meta Horizon OS (IWSDK + WebXR + MediaPipe)",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@iwsdk/core": "latest",
+    "@mediapipe/tasks-vision": "latest",
+    "sharp": "^0.35.5"
+  },
+  "devDependencies": {
+    "@iwsdk/vite-plugin-dev": "latest",
+    "typescript": "^5.7.0",
+    "vite": "^7.0.0"
+  }
+}
