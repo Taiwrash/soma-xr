@@ -7,6 +7,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc --noEmit && vite build",
+    "build:pages": "tsc --noEmit && vite build --base=/soma-xr/",
+    "deploy": "npm run build:pages && node scripts/publish-gh-pages.mjs && git push -f -u origin gh-pages",
     "preview": "vite preview"
   },
   "dependencies": {

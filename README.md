@@ -54,14 +54,13 @@ npm run dev
 
 This repository is pre-configured for **GitHub Pages** with automatic subpath resolution (`vite.config.ts` auto-detects `/<repo-name>/` from `GITHUB_REPOSITORY`), `import.meta.env.BASE_URL`-safe MediaPipe WASM & pre-bundled African neural audio paths, `.nojekyll`, and `.github/workflows/deploy.yml`:
 
-1. Push `main` to GitHub:
+1. Build and publish the static production bundle directly to the `gh-pages` branch:
    ```bash
-   git add .
-   git commit -m "Initial Soma XR release"
-   git remote add origin https://github.com/Taiwrash/soma-xr.git
-   git branch -M main
-   git push -u origin main
+   npm run deploy
    ```
-2. On GitHub, go to **Settings → Pages → Build and deployment → Source** and select **GitHub Actions**.
-3. The **Deploy Soma XR to GitHub Pages** workflow runs automatically on every push to `main` (or via **Actions → Run workflow**) and publishes your HTTPS WebXR app at:
+2. On GitHub, go to **Settings → Pages → Build and deployment**:
+   - **Source:** `Deploy from a branch`
+   - **Branch:** `gh-pages` / `/ (root)` → **Save**
+   *(A `.github/workflows/deploy.yml` workflow is also included if deploying via GitHub Actions).*
+3. Your HTTPS WebXR app is served at:
    `https://taiwrash.github.io/soma-xr/`
