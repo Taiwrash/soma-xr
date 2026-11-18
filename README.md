@@ -1,9 +1,20 @@
 # Soma XR — Full-Body Hands-First Spatial Anatomy & Regional Coaching Studio
 
 - **Live WebXR & 3D Studio (HTTPS):** https://taiwrash.github.io/soma-xr/
+- **Watch Full Pitch & Demo (`2:40` on YouTube):** https://youtu.be/L2M2Z6523CU
+- **Stream 60s Judge Sizzle Cut (`0:54` HD MP4):** https://taiwrash.github.io/soma-xr/media/Soma-XR-60s-Judge-Sizzle.mp4
 - **Repository:** https://github.com/Taiwrash/soma-xr
 
 Built with **Meta Immersive Web SDK (`@iwsdk/core` v1.1 + Three.js + WebXR `immersive-ar`)**, **MediaPipe Full-Body Pose + Face + Hand Vision**, and **Meta AI Massively Multilingual Speech (`MMS-TTS`)** for the **Meta Start Developer Competition 2026** (*Productivity Track* + *Best First Five Minutes*, *Boldest Original Concept*, *Best Agentic Interaction*, *Best Reason to Come Back*, and *Best Accessibility Forward*).
+
+---
+
+## Video Showcase
+
+| Flagship Pitch & Full Demo (`2:40` · YouTube) | Fast Judge Sizzle Cut (`0:54` · Instant Stream) |
+| :---: | :---: |
+| [![Watch Soma XR Pitch & Full Demo on YouTube](docs/media/pitch-youtube-card.jpg)](https://youtu.be/L2M2Z6523CU) | [![Stream Soma XR 60s Judge Sizzle Cut](docs/media/sizzle-stream-card.jpg)](https://taiwrash.github.io/soma-xr/media/Soma-XR-60s-Judge-Sizzle.mp4) |
+| **[▶ Watch Full Pitch & Demo on YouTube](https://youtu.be/L2M2Z6523CU)** · [Closed Captions (`.srt`)](videos/Soma-XR-Pitch-and-Demo.srt) | **[▶ Stream 60s Judge Sizzle Cut](https://taiwrash.github.io/soma-xr/media/Soma-XR-60s-Judge-Sizzle.mp4)** · [Closed Captions (`.srt`)](videos/Soma-XR-60s-Judge-Sizzle.srt) |
 
 ---
 
@@ -22,13 +33,6 @@ Built with **Meta Immersive Web SDK (`@iwsdk/core` v1.1 + Three.js + WebXR `imme
    - Translates all 22 3D spatial callouts, biomechanical/clinical notes, Quiz clues, and Fracture Scan cases—paired with **authentic native tonal neural speech** and **real-time 3D TMJ jaw lip-sync**:
      - **African Languages (9):** **Yorùbá** (`facebook/mms-tts-yor`), **Hausa** (`facebook/mms-tts-hau`), **Igbo** (`Shinzmann/soro-tts-ibo`), **Kiswahili**, **isiZulu**, **Amharic (አማርኛ)**, **Naija Pidgin**, **Af-Soomaali**, and **Afrikaans** (including **405 pre-bundled offline-ready native Yorùbá, Hausa, and Igbo MP3 clips** in `public/audio/coach/`).
      - **Global Languages (5):** **English**, **Français**, **العربية (RTL)**, **Español**, and **Português**.
-
----
-
-## Demo Videos (`videos/`)
-
-- **Flagship Pitch + Demo (`1920×1080` @ `30 fps`):** `videos/Soma-XR-Pitch-and-Demo.mp4` (+ `.srt` captions)
-- **Fast Judge Sizzle Cut (`1920×1080` @ `30 fps`):** `videos/Soma-XR-60s-Judge-Sizzle.mp4` (+ `.srt` captions)
 
 ---
 
